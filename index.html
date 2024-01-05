@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="HyperNeRF handles topological variations by modeling a family of shapes in a higher-dimensional space, thereby producing more realistic renderings and more accurate geometric reconstructions.">
-  <meta name="keywords" content="GaussianBody">
+  <meta name="keywords" content="SonicVisionLM">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:image" content="./static/images/thumbnail.png"/>
   <link rel="image_src" href="./static/images/thumbnail.png">
@@ -12,7 +12,7 @@
         type="image/x-icon"
         href="./static/images/favicon.ico"/>
 
-  <title>GaussianBody</title>
+  <title>SonicVisionLM</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDF010G6PN"></script>
@@ -75,7 +75,7 @@
         </a>
         <div class="navbar-dropdown">
           <a class="navbar-item" href="">
-            GaussianBody
+            SonicVisionLM
           </a>
           </a>
         </div>
@@ -90,17 +90,25 @@
   <div class="hero-body">
     <div class="container">
       <div class="container has-text-centered">
-        <h1 class="title is-1 publication-title">
-          GaussianBody
+        <h1 class="title is-size-3 publication-title">
+          SonicVisionLM: Playing Sound with Vision Language Models
         </h1>
+        <!-- <h1 class="title is-size-5 publication-title">
+          Paper ID 8340
+        </h1>  -->
         <div class="is-size-5 publication-authors">
           <div class="author-block">
-            <span class="author-name">Con</span><sup>1</sup>
+            <span class="author-name">Zhifeng Xie</span><sup>1,3</sup>
+            <span class="author-name">Shengye Yu</span><sup>1</sup>
+            <span class="author-name">Qile He</span><sup>1</sup>
+            <span class="author-name">Mengtian Li</span><sup>1,2,3</sup>
+            <span class="author-name">Yu-Gang Jiang</span><sup>2</sup>
         </div>
 
         <div class="is-size-5 publication-authors">
-          <span class="author-block"><sup>1</sup>Shanghai University,</span>
-          <span class="author-block"><sup>2</sup>Shanghai AI Lab</Label></span>
+          <span class="author-block"><sup>1</sup>Shanghai University</span>
+          <span class="author-block"><sup>2</sup>Fudan University</span>
+          <span class="author-block"><sup>3</sup>Shanghai Engineering Research Center of Motion Picture Special Effects</span>
         </div>
 
         <div class="column has-text-centered">
@@ -139,6 +147,67 @@
     </div>
   </div>
 </section>
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Teaser. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="static/img/teaser.PNG">
+        <div class="content has-text-justified">
+          <p>
+            <i>SonicVisionLM</i> implements the automatic detection of in-picture voice generation and accepts the user's editing of this paper and time in the off-screen section.
+            <i>On-screen sound</i> means sound originate from visual information.
+            <i>Off-screen sound</i> not directly happened on the screen. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Teaser. -->
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            There has been a growing interest in the task of generating sound for silent videos, 
+            primarily because of its practicality in streamlining video post-production. 
+            However, existing methods for video-sound generation attempt to directly create sound from visual representations, 
+            which can be challenging due to the difficulty of aligning visual representations with audio representations. 
+          </p>
+          <p>
+            In this paper, we present <i>SonicVisionLM</i>, 
+            a novel framework aimed at generating a wide range of sound effects by leveraging vision language models. 
+            Instead of generating audio directly from video, we use the capabilities of powerful vision language models (VLMs). 
+            When provided with a silent video, our approach first identifies events within the video using a VLM to suggest possible sounds that match the video content. 
+            This shift in approach transforms the challenging task of aligning image and audio into more well-studied sub-problems of aligning image-to-text and text-to-audio through the popular diffusion models. 
+            To improve the quality of audio recommendations with LLMs, 
+            we have collected an extensive dataset that maps text descriptions to specific sound effects and developed temporally controlled audio adapters. Our approach surpasses current state-of-the-art methods for converting video to audio, resulting in enhanced synchronization with the visuals and improved alignment between audio and video components.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Framework Overview -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Framework Overview</h2>
+        <img src="static/img/framework.png">
+        <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div> 
+      </div>
+    </div>
+    <!--/ Framework Overview -->
+  </div>
+</section>
 
 <section class="hero teaser">
   <div class="hero-body">
@@ -150,55 +219,591 @@
     </div>
   </div>
 </section>
-
-
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Demos</h2>
+</div>
+<!-- conidtional generation -->
 <section class="hero is-dark is-small">
   <div class="hero-body">
     <div class="container has-text-centered">
+      <h2 class="title is-3">conidtional generation</h2>
       <div id="results-carousel" class="carousel results-carousel">
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick scratch the dirt</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/48_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/48_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/48_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/48_small.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
 
         <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick hit the paper</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/498_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/498_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/498_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/498_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+       
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick hit the wood</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/50_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/50_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/50_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/50_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick scratch the leaves</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/494_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/494_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/494_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/494_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick scratch the metal</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/60_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/60_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/60_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/60_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick hit the plastic</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/8_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/8_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/8_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/8_small.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick scratch the dirt</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/223_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/223_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/223_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/223_small.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick hit the metal</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/565_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/565_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/565_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/565_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >Target</h2>
+            <h2 class="title is-5"  >Condition</h2>
+            <h2 class="title is-5"  >&nbsp;</h2>
+            <h2 class="title is-5"  >stick scratch the cloth</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/557_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/557_cond.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >CondFoleyGen</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/condition/557_condfoleygen.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/condition/557_full.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
           
-        </div>
-
-        <div>
           
-        </div>
-
-        <div>
-         
-        </div>
-
-        <div>
-          
-        </div>
-
-        <div>
-          
-        </div>
-
+        
       </div>
-
-      <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-justified">
         <div class="column is-three-quarters">
           <p>
-
+            For CondFoleyGen, the condition is audio.
           </p>
+          <p>
+            For SonicVisionLM(ours), the condition is text.
+          </p>
+          <p>
+            Evaluation criteria: check if model can change sound types based on conditions but still synchronize with the target action.
+          </p> 
+          <p>
+            * These video clips are from  Greatest Hits dataset
+          </p>
+
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- /conidtional generation -->
+
+<!-- unconidtional generation -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">unconditional generation</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2d41lt8R79k_0071_0081_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2d41lt8R79k_0071_0081_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2d41lt8R79k_0071_0081_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2d41lt8R79k_0071_0081_full_2.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/cclR4JDZGPI_0023_0033_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/cclR4JDZGPI_0023_0033_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/cclR4JDZGPI_0023_0033_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/cclR4JDZGPI_0023_0033_full_1.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2x7moYmJu9A_0127_0137_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2x7moYmJu9A_0127_0137_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2x7moYmJu9A_0127_0137_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/2x7moYmJu9A_0127_0137_full_2.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/3Q56DpBv5gE_0007_0017_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/3Q56DpBv5gE_0007_0017_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/3Q56DpBv5gE_0007_0017_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/3Q56DpBv5gE_0007_0017_small_1.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/ci8sj1HmskI_0012_0022_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/ci8sj1HmskI_0012_0022_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/ci8sj1HmskI_0012_0022_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/ci8sj1HmskI_0012_0022_small_1.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/eJqwL1utI9U_0006_0016_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/eJqwL1utI9U_0006_0016_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/eJqwL1utI9U_0006_0016_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/eJqwL1utI9U_0006_0016_full_2.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5" >GT</h2>
+            <h2 class="title is-5"  >SpecVQGAN</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/dKpyqhjFu14_0001_0011_target.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/dKpyqhjFu14_0001_0011_specvqgan2.mov"
+                      type="video/mp4">
+            </video>
+            <h2 class="title is-5"  >DIFF-FOLEY</h2>
+            <h2 class="title is-5"  >Ours</h2>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/dKpyqhjFu14_0001_0011_difffoley.mov"
+                      type="video/mp4">
+            </video>
+            <video controls height="100%">
+              <source src="./static/video/uncondition/dKpyqhjFu14_0001_0011_full_2.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+  
+        
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-three-quarters">
+          <p>
+            SpecVQGAN and SonicVisionLM(ours) can generate sounds for 10s.
+            DIFF-FOLEY can generate sounds for 8s.The remaining 2s we fill in with blank audio, 
+            so hopefully that doesn't factor into the evaluation.
+          </p>
+          <p>
+            Evaluation criteria:
+            the model's capability to accurately generate category-specific and time-synchronized longer sounds for slient videos
+          </p> 
+          <p>
+            * These video clips are from CountixAV datase
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /unconidtional generation -->
+
+<!-- muti-soundtracks -->
+<section class="hero is-black is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3"> Multi-soundtracks generation</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5 full-width" >original video (* This video clip is from <i>Titanic</i>)
+ 
+            </h2>
+          <video controls height="100%" class="full-width">
+            <source src="./static/video/muti/exp2/ori.mp4"
+                    type="video/mp4">
+          </video>
+
+          <div class="arrow-container">
+            <div class="arrow-down"></div>
+            <span class="tail-text">+ <span class="red">on-screen sound</span></span>
+          </div>
+
+            <h2 class="title is-5 full-width" >Level 1 : <span class="red">blow a  whistle</span> 
+              </h2>
+            <video controls height="100%" class="full-width">
+              <source src="./static/video/muti/exp2/level1.mov"
+                      type="video/mp4">
+            </video>
+
+            <div class="arrow-container">
+              <div class="arrow-down"></div>
+              <span class="tail-text">+ <span class="blue">off-screen sound(user edit)</span> </span>
+            </div>
+
+            <h2 class="title is-5 full-width" >Level 2 : <span class="red">blow a  whistle</span>  + <span class="blue">waves</span></h2>
+            <video controls height="100%" class="full-width">
+              <source src="./static/video/muti/exp2/level2.mov"
+                      type="video/mp4">
+          </div>
+        </div>
+
+        <div>
+          <div class="results-item" >
+            <h2 class="title is-5 full-width" >original video (* This video clip is from <i>Léon</i>)
+ 
+            </h2>
+          <video controls height="100%" class="full-width">
+            <source src="./static/video/muti/exp1/ori.mov"
+                    type="video/mp4">
+          </video>
+
+          <div class="arrow-container">
+            <div class="arrow-down"></div>
+            <span class="tail-text">+ <span class="red">on-screen sound</span></span>
+          </div>
+
+            <h2 class="title is-5 full-width" >Level 1 : <span class="red">door opening + footsteps</span> 
+              </h2>
+            <video controls height="100%" class="full-width">
+              <source src="./static/video/muti/exp1/level1.mov"
+                      type="video/mp4">
+            </video>
+
+            <div class="arrow-container">
+              <div class="arrow-down"></div>
+              <span class="tail-text">+ <span class="green">on-screen sound(user edit)</span> </span>
+            </div>
+
+            <h2 class="title is-5 full-width" >Level 2 : <span class="red">door opening</span> <span class="green">squeakly</span>  + <span class="red">footsteps</span><span class="green">of leather shoes(time condition)</span></h2>
+            <video controls height="100%" class="full-width">
+              <source src="./static/video/muti/exp1/level2.mov"
+                      type="video/mp4">
+            </video>
+
+            <div class="arrow-container">
+              <div class="arrow-down"></div>
+              <span class="tail-text">+ <span class="blue">off-screen sound(user edit)</span> </span>
+            </div>
+
+            <h2 class="title is-5 full-width" >Level 3 : <span class="red">door opening</span> <span class="green">squeakly</span>  + <span class="red">footsteps</span><span class="green">of leather shoes(time condition)</span><span class="blue">+news report on TV + insert key to unlock the door</span></h2>
+            <video controls height="100%" class="full-width">
+              <source src="./static/video/muti/exp1/level3.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
 
 
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /muti-soundtracks -->
 
 
-<hr/>
+<!-- <hr/>
 
 <section class="section" id="BibTeX">
+BibTeX
+</section> -->
 
-</section>
-
+<hr/>
 
 <section class="section" id="acknowledgements">
   <div class="container content is-max-desktop">
