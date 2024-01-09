@@ -100,8 +100,9 @@
           <div class="author-block">
             <span class="author-name">Zhifeng Xie</span><sup>1,3</sup>
             <span class="author-name">Shengye Yu</span><sup>1</sup>
+            <span class="author-name">Mengtian Li</span><sup>1,2,3 *</sup>
             <span class="author-name">Qile He</span><sup>1</sup>
-            <span class="author-name">Mengtian Li</span><sup>1,2,3</sup>
+            <span class="author-name">Chaofeng Chen</span><sup>4</sup>
             <span class="author-name">Yu-Gang Jiang</span><sup>2</sup>
         </div>
 
@@ -109,20 +110,12 @@
           <span class="author-block"><sup>1</sup>Shanghai University</span>
           <span class="author-block"><sup>2</sup>Fudan University</span>
           <span class="author-block"><sup>3</sup>Shanghai Engineering Research Center of Motion Picture Special Effects</span>
+          <span class="author-block"><sup>4</sup>S-Lab, Nanyang Technological University</span>
         </div>
 
         <div class="column has-text-centered">
           <div class="publication-links">
             <!-- PDF Link. -->
-            <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
             <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -133,13 +126,20 @@
                 </a>
             </span>
             <span class="link-block">
-              <a href=""
+              <a href="https://github.com/Yusiissy/SonicVisionLM"
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fab fa-github"></i>
                 </span>
                 <span>Code</span>
                 </a>
+            </span>
+            <span class="link-block">
+              <a href="https://huggingface.co/spaces/Yuiisy/SonicVisionLM"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">🤗</span>
+                <span>Space</span>
+              </a>
             </span>
           </div>
         </div>
@@ -200,7 +200,11 @@
         <img src="static/img/framework.png">
         <div class="content has-text-justified">
           <p>
-            
+            SonicVisionLM presents a composite framework designed for the automatic recognition of on-screen sounds coupled with a user-interactive module for off-screen sounds editing. 
+            The blue dashed box and arrows in the figure represent the visual automation workflow: First, a silent video goes into MiniGPT-v2 where it figures out what's happening (text).
+            Then, this video is  processed by the visual network to capture the timestamp of on-screen sound events.
+            After that, these two conditions are then entered into the Latent Diffusion Model with adapter to generate the sounds that match what's on screen. 
+            The purple dotted box and arrows show how users can add their own changes to create off-screen sounds.
           </p>
         </div> 
       </div>
